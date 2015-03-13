@@ -1,0 +1,40 @@
+
+import java.io.*;
+import java.util.*;
+public class RevWord
+{
+
+    public void main()throws IOException
+    {
+        BufferedReader b =new BufferedReader(new InputStreamReader(System.in)); String fp ="";
+        String n;int c = 0;
+        do
+        {
+            
+            System.out.println("Enter a sentence....");
+            n = b.readLine();
+            StringTokenizer s = new StringTokenizer(n,".,;:!?");
+            c = s.countTokens();
+
+            if(c<=20&&n.length()<=80);
+            else break;
+
+
+            for(int i = 1;i<=c;i++)
+            {
+                String w = s.nextToken();
+                StringTokenizer x = new StringTokenizer(w);
+
+                int cw = x.countTokens();
+                for(int j = 1;j<=cw;j++)
+                {
+                    fp = " "+x.nextToken()+fp;
+                }
+
+            }
+            fp = fp.trim();
+            System.out.println(fp);
+
+        }while(false);
+    }
+}
