@@ -1,0 +1,80 @@
+
+
+import java.io.*;
+import java.util.*;
+public class No
+{
+
+    public void main()throws IOException
+    { 
+        BufferedReader b =new BufferedReader(new InputStreamReader(System.in));
+        boolean f = false;String n;
+        do
+        {
+            f = false;
+            System.out.println("Enter a sentence....");
+            n = b.readLine();
+            for(int i = 0 ;i<n.length();i++)
+            {
+                if(Character.isLowerCase(n.charAt(i)))
+                {
+                    
+                    f = true;
+                }
+            }
+            
+            if(f)
+            System.out.println("Enter only uppercase...");
+        }while(f);
+        StringTokenizer s = new StringTokenizer(n,".!?");
+
+        int c = s.countTokens();
+
+        String vw = "Sentence\tDisplay\n";
+
+        System.out.println("Sentence\tNo. of Vowels\tNo. of Words");
+
+        String w = "";
+
+        for(int i = 1;i<=c;i++)
+        {
+            w = s.nextToken();
+            int v = 0;
+
+            for(int j = 0;j<w.length();j++)
+            {
+                if(w.charAt(j) == 'A'||w.charAt(j) == 'E'||w.charAt(j) == 'I'||w.charAt(j) == 'O'||w.charAt(j) == 'U')
+                {
+                    v++;
+                }
+            }
+
+            StringTokenizer iw = new StringTokenizer(w);
+
+            int cw = iw.countTokens();
+
+            System.out.println(i + "\t" + v +"\t"+cw);
+
+            vw+=i+"\t";
+
+            for(int k = 1;k<=3*v;k++)
+            {
+                vw+="V";
+            }
+
+            vw+="\n\t\t\t";
+
+            for(int m = 1;m<=3*cw;m++)
+            {
+                vw+="W";
+            }
+
+            vw+="\n";
+        }
+
+        System.out.println(vw);
+
+    }
+}
+
+
