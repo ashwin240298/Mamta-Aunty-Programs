@@ -1,0 +1,24 @@
+
+import java.io.*;
+import java.util.*;
+public class StringBufferPalindromePrint
+{
+
+    public void main()throws IOException
+    {
+        BufferedReader b =new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter a sentence....");
+        String n = b.readLine();
+        StringTokenizer t = new StringTokenizer(n);
+
+        int c = t.countTokens();
+
+        for(int i = 1;i<=c;i++)
+        {
+            String w = t.nextToken(); 
+
+            if(w.equalsIgnoreCase(new StringBuffer(w).reverse().toString()))
+            System.out.println(w);
+        }
+    }
+}
