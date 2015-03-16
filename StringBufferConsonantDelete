@@ -1,0 +1,25 @@
+
+import java.io.*;
+import java.util.*;
+public class StringBufferConsonantDelete
+{
+
+    public void main()throws IOException
+    {
+        BufferedReader b =new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter a sentence....");
+        StringBuffer s = new StringBuffer(b.readLine());
+        for(int j = 0;j<s.length();j++)
+        {
+            char x = s.charAt(j);
+            if(s.charAt(j) == 'A'||s.charAt(j) == 'E'||s.charAt(j) == 'I'||s.charAt(j) == 'O'||s.charAt(j) == 'U'||s.charAt(j) == 'a'||s.charAt(j) == 'e'||s.charAt(j) == 'i'||s.charAt(j) == 'o'||s.charAt(j) == 'u');
+            else if(Character.isLetter(x))
+            {
+                s.deleteCharAt(j);
+                j--;
+            }
+
+        }
+        System.out.println(s);
+    }
+}
