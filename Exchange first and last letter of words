@@ -1,0 +1,53 @@
+
+import java.util.*;
+import java.io.*;
+public class ExWord
+{
+    String sent; String rev; int size;
+    ExWord()
+    {
+        sent = "";
+        rev = "";
+        size = 0;
+    }
+
+    void readSentence()throws IOException
+    {
+        BufferedReader b =new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter a sentence....");
+        sent = b.readLine();
+    }
+
+    void exfirstlast()
+    {
+        StringTokenizer s = new StringTokenizer(sent," .");
+        int c = s.countTokens();
+        for(int i = 1;i<=c;i++)
+        {
+            String w = s.nextToken();
+            if(w.length() == 1)
+            {
+                rev+=w+ " ";
+                continue;
+            }
+
+            rev+=w.charAt(w.length()-1)+w.substring(1,w.length()-1)+w.charAt(0)+" ";
+        }
+    }
+
+    void display()
+    {
+        System.out.println("Orignal Sentence:\n"+sent);
+        System.out.println("Changed Sentence:\n"+rev);
+    }
+
+    void main()throws IOException
+    {
+        ExWord ob = new ExWord();
+        ob.readSentence();
+        ob.exfirstlast();
+        ob.display();
+    }
+}
+
+	
