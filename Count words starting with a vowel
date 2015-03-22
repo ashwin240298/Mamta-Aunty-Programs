@@ -1,0 +1,48 @@
+import java.util.*;
+import java.io.*;
+public class VowelWord
+{
+    String str; int freq;
+    public VowelWord()
+    {
+        str = "";
+        freq = 0;
+    }
+
+    void readstr()throws IOException
+    {
+        BufferedReader b =new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter a sentence....");
+        str = b.readLine();
+    }
+
+    void freqVowel()
+    { StringTokenizer s = new StringTokenizer(str," .");
+        int c = s.countTokens();
+        for(int i = 1;i<=c;i++)
+        {
+            String w = s.nextToken();
+            
+                if(w.charAt(0) == 'A'||w.charAt(0) == 'E'||w.charAt(0) == 'I'||w.charAt(0) == 'O'||w.charAt(0) == 'U'||w.charAt(0) == 'a'||w.charAt(0) == 'e'||w.charAt(0) == 'i'||w.charAt(0) == 'o'||w.charAt(0) == 'u')
+                {
+                    freq++;
+                }
+            }
+        }
+    
+
+    void display()
+    {
+        System.out.println(str);
+        System.out.println("Frequency of words starting with a vowel is "+freq+".");
+
+    }
+
+    void main()throws IOException
+    {
+        VowelWord o = new VowelWord();
+        o.readstr();
+        o.freqVowel();
+        o.display();
+    }
+}
