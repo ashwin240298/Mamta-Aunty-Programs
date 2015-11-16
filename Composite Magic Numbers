@@ -1,0 +1,67 @@
+import java.util.*;
+public class ComMag
+{
+    int n;
+    int m;
+    public ComMag()
+    {
+        n = m= 0;
+    }
+
+    void input()
+    {
+        boolean f = true;
+        while(f)
+        {
+            Scanner s = new Scanner(System.in);
+            System.out.print("M=");
+            m = s.nextInt();
+            System.out.println();
+            System.out.print("N=");
+            n = s.nextInt();
+            System.out.println();
+            if(m>n){System.out.println("INVALID INPUT");}
+            else f = false;
+        }
+    }
+
+    boolean isComposite(int p)
+    {
+        int c = 0;
+        for(int i = 1;i<=p;i++)
+        {
+            if(p%i==0)c++;
+        }
+
+        if(c>2)return true;
+        return false;
+
+    }
+
+    boolean isMagic(int p)
+    {
+      if(--p%9==0)return true;
+      return false;
+    }
+    
+    void finalCheck()
+    {
+        System.out.println("THE COMPOSITE MAGIC INTEGERS ARE:");
+        int c = 0;String pr = "";
+        for(int i = m;i<=n;i++)
+        {
+            if(isComposite(i)&&isMagic(i)){pr+=i+",";c++;}
+        }
+        
+        System.out.println(pr.substring(0,pr.length()-1));
+        System.out.println("FREQUENCY OF COMPOSITE MAGIC NUMBERS IS: "+c);
+        
+    }
+    
+    public static void main()
+    {
+        ComMag o = new ComMag();
+        o.input();
+        o.finalCheck();
+    }
+}
